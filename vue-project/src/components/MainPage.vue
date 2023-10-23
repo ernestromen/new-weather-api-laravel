@@ -22,10 +22,10 @@ import ForcastList from './ForcastList.vue'
 export default {
   name: 'MainPage',
   components: {
-    // SearchBar,
+    SearchBar,
     // FavoriteButton,
     // TempDisplay,
-    // ForcastList,
+    ForcastList,
   },
   data() {
     return {
