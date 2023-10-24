@@ -9,6 +9,8 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { createStore } from 'vuex'
 
+library.add(fas, faHeart);
+
 const store = createStore({
     state() {
       return {
@@ -19,7 +21,8 @@ const store = createStore({
         chosenCity: '',
         countryFlag: '',
         showFavoriteButton: false,
-        showFavoriteButtonCondition: true
+        showFavoriteButtonCondition: true,
+        errorDisplay: 'asdasd'
       }
     },
     mutations: {
@@ -47,14 +50,13 @@ const store = createStore({
       updateshowFavoriteButtonCondition(state, newValue) {
         state.showFavoriteButtonCondition = newValue;
       },
-      showFailedApiMessage: function (error) {
-        return `${error["message"]} : ${error["name"]} `;
+      showFailedApiMessage(state,error) {
+        state.errorDisplay = `${error["message"]} : ${error["name"]} `;
+        // return `${error["message"]} : ${error["name"]} `;
       },
     }
   })
 
 const app = createApp(App)
-
-app.use(router)
 app.use(store);
-app.mount('#app')
+app.component("font-awesome-icon", FontAwesomeIcon).mount('#app')

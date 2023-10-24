@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', 'App\Http\Controllers\PageController@index');
+Route::get('/show-all-favorites', 'App\Http\Controllers\PageController@showAllFavorites')->name('favorite_list');
+Route::get('/get-all-favorites', 'App\Http\Controllers\PageController@getAllFavorites');
+Route::get('/all-favorites', 'App\Http\Controllers\PageController@allFavorites');
+Route::get('/delete-favorite-by-id/{id}', 'App\Http\Controllers\PageController@deleteById')->name('delete_favorite_by_id');
+Route::post('/add-favorite', 'App\Http\Controllers\PageController@store');
+Route::delete('/delete-favorite/{favoriteCity}', 'App\Http\Controllers\PageController@delete')->name('delete_favorite');

@@ -1,0 +1,9 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+table{
+    width: 50% !important;
+    margin:auto !important;
+}
+body{
+    background-color: #009688 !important;
+}

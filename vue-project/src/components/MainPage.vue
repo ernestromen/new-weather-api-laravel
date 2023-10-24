@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>inside</h1>
     <div class="widget mt-3">
       <SearchBar />
       <div>
@@ -23,8 +22,8 @@ export default {
   name: 'MainPage',
   components: {
     SearchBar,
-    // FavoriteButton,
-    // TempDisplay,
+    FavoriteButton,
+    TempDisplay,
     ForcastList,
   },
   data() {

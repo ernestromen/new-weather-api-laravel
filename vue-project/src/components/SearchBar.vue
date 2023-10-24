@@ -51,7 +51,7 @@ export default {
   methods: {
     getAllFavorites() {
       axios
-        .get("http://localhost/newweather/backend/public/allfavorites")
+        .get("http://localhost/new-weather-api-laravel/public/getAllFavorites")
         .then((response) => {
           this.favoritesArray = response["data"];
         })
