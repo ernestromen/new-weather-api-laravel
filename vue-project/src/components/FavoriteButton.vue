@@ -6,7 +6,6 @@
       </h1>
       <h1 v-else><font-awesome-icon @click="toggleHeart" icon="heart" /></h1>
     </div>
-    <div v-if="$store.state.errorDisplay.length > 0" class="text-center">test</div>
   </div>
 </template>
 <script>
@@ -43,12 +42,13 @@ export default {
             }
           )
           .then((response) => {
+            
+            this.$store.commit('updateShowFailedApiMessage', error);
+
             alert('Added to favorites!')
           })
           .catch((error) => {
-            // alert('Failed to store favorite!')
-           this.$store.commit('showFailedApiMessage', error);
-            console.log(this.$store.errorDisplay,'error');
+           this.$store.commit('updateShowFailedApiMessage', error);
           })
       } else {
         axios
@@ -59,9 +59,7 @@ export default {
             alert('Removed from favorites')
           })
           .catch((error) => {
-            // alert('delete failed!')
-            this.$store.commit('showFailedApiMessage', error);
-            console.log(this.$store.errorDisplay,'error');
+           this.$store.commit('updateShowFailedApiMessage', error);
           })
       }
     }

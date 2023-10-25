@@ -22,7 +22,8 @@ const store = createStore({
         countryFlag: '',
         showFavoriteButton: false,
         showFavoriteButtonCondition: true,
-        errorDisplay: 'asdasd'
+        errorMessageDisplay: false,
+        errorMessageText: ''
       }
     },
     mutations: {
@@ -50,9 +51,9 @@ const store = createStore({
       updateshowFavoriteButtonCondition(state, newValue) {
         state.showFavoriteButtonCondition = newValue;
       },
-      showFailedApiMessage(state,error) {
-        state.errorDisplay = `${error["message"]} : ${error["name"]} `;
-        // return `${error["message"]} : ${error["name"]} `;
+      updateShowFailedApiMessage(state,error) {
+        state.errorMessageDisplay = true;
+        state.errorMessageText = `${error["message"]} : ${error["name"]} `;
       },
     }
   })
