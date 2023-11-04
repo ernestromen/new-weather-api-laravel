@@ -1,0 +1,36 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./backend/vue-project
+    ports:
+      - "5173:5173"
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:80"
+    volumes:
+    - ./frontend:/app
+    depends_on:
+      - database
+    #   - redis
+    # environment:
+      # DATABASE_URL: mysql://symfony:symfony@database:3306/symfony
+    #   REDIS_URL: redis://redis:6379
+
+  database:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  # redis:
+  #   image: redis:6.0
+  #   ports:
+  #     - "6379:6379"
