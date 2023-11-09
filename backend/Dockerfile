@@ -39,6 +39,7 @@ RUN pecl install xdebug
 
 # Expose the container's Apache port
 EXPOSE 80
+RUN chmod o+w ./storage -R 
 # RUN chown -R www-data:www-data var/cache var/log
 # Start Apache with PHP
 CMD ["apache2-foreground"]

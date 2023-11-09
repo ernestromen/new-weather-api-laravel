@@ -9,6 +9,9 @@ use Illuminate\Database\QueryException;
 class PageController extends Controller
 {
 
+    public function index(){
+        dd('laravel endpoint work!');
+    }
 
     public function showAllFavorites(){
         $favorites = Favorite::all();
