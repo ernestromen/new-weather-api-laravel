@@ -16,7 +16,7 @@ RUN apt-get update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Set the working directory
-WORKDIR /var/www/backend
+WORKDIR /var/www/html
 
 # Copy the composer files first to take advantage of Docker's caching
 COPY composer.json composer.lock ./

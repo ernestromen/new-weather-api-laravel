@@ -14,13 +14,13 @@ services:
     volumes:
     - ./frontend:/app
     depends_on:
-      - database
+      - db
     #   - redis
     # environment:
       # DATABASE_URL: mysql://symfony:symfony@database:3306/symfony
     #   REDIS_URL: redis://redis:6379
 
-  database:
+  db:
     image: mysql:8.0
     ports:
       - "3306:3306"
